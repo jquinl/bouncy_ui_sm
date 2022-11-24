@@ -1,0 +1,3 @@
+[submodule "bouncy_ui/godot-cpp"]
+	path = bouncy_ui/godot-cpp
+	url = git@github.com:godotengine/godot-cpp.git
