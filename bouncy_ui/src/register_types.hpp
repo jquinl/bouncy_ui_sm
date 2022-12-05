@@ -5,7 +5,7 @@
 
 using namespace godot;
 
-void initialize_class_size_module(ModuleInitializationLevel p_level);
-void uinitialize_class_size_module(ModuleInitializationLevel p_level);
+void initialize_bouncy_ui_module(ModuleInitializationLevel p_level);
+void uinitialize_bouncy_ui_module(ModuleInitializationLevel p_level);
 
 #endif
