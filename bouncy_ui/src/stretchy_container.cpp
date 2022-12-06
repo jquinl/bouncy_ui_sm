@@ -9,9 +9,7 @@ StretchyContainer::StretchyContainer()
 }
 StretchyContainer::~StretchyContainer()
 {
-    unpop_tw.unref();
-    pop_tw.unref();
-}
+
 
 void StretchyContainer::_bind_methods()
 {
@@ -69,19 +67,17 @@ Vector2 StretchyContainer::_get_minimum_size() const
 }
 void StretchyContainer::_notification(int p_what) {
     switch (p_what) {
-        case NOTIFICATION_READY:
+        case NOTIFICATION_ENTER_CANVAS:
         {
             still_inside = false;
             reset_tweens();
         }break;
         case NOTIFICATION_SORT_CHILDREN:
         {
-            reset_tweens();
             resize_child_by(0.0f);
         } break;
         case NOTIFICATION_RESIZED:
         {
-            reset_tweens();
             resize_child_by(0.0f);
         } break;
         case NOTIFICATION_MOUSE_ENTER:
@@ -103,6 +99,11 @@ void StretchyContainer::_notification(int p_what) {
                     unpop_box();
             }
 
+        }break;
+        case NOTIFICATION_EXIT_CANVAS:
+        {
+            unpop_tw->unreference();
+            pop_tw->unreference();
         }break;
 	}
 }
@@ -139,8 +140,6 @@ void StretchyContainer::reset_function()
 }
 void StretchyContainer::reset_tweens()
 {
-    pop_tw.unref();
-    unpop_tw.unref();
     pop_tw = this->create_tween();
     unpop_tw = this->create_tween();
     pop_tw->connect("finished", Callable(pop_tw.ptr(), "stop"));//Prevents the tween becoming disabled when it finishes
