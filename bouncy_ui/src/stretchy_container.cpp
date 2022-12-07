@@ -8,7 +8,7 @@ StretchyContainer::StretchyContainer()
     resize_y = false;
 }
 StretchyContainer::~StretchyContainer()
-{
+{}
 
 
 void StretchyContainer::_bind_methods()
@@ -62,7 +62,7 @@ Vector2 StretchyContainer::_get_minimum_size() const
     Control* c = Object::cast_to<Control>(get_child(0));
     if (!c || !c->is_visible_in_tree()) return Vector2();
     if (c->is_set_as_top_level()) return Vector2();
-    
+
     return c->get_combined_minimum_size();
 }
 void StretchyContainer::_notification(int p_what) {
