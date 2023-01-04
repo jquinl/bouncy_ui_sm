@@ -1,11 +1,13 @@
+#ifndef STRETCHY_CONTAINER
+#define STRETCHY_CONTAINER
 #ifdef WIN32
 #include <windows.h>
 #endif
-#ifndef STRETCHY_CONTAINER
-#define STRETCHY_CONTAINER
 
 #include <godot_cpp/core/binder_common.hpp>
 #include <godot_cpp/classes/global_constants.hpp>
+#include <godot_cpp/core/binder_common.hpp>
+
 #include <godot_cpp/classes/container.hpp>
 #include <godot_cpp/classes/tween.hpp>
 #include <godot_cpp/classes/method_tweener.hpp>
